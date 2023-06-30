@@ -44,7 +44,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "ewit35" {
   name                = "ewit35"
   resource_group_name = azurerm_resource_group.practise-project35.name
   location            = azurerm_resource_group.practise-project35.location
-  sku                 = "Standard_B1s"
+  sku                 = "Standard_B2s"
   instances           = 2
   admin_username      = "azureuser"
   admin_password      = "Admin1"
