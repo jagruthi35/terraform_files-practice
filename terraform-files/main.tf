@@ -44,13 +44,20 @@ resource "azurerm_linux_virtual_machine_scale_set" "ewit35" {
   name                = "ewit35"
   resource_group_name = azurerm_resource_group.practise-project35.name
   location            = azurerm_resource_group.practise-project35.location
-  sku                 = "Standard_B2s"
+  sku                 = "Standard_B1s"
   instances           = 2
   admin_username      = "azureuser"
   admin_password      = "Admin1"
   disable_password_authentication = false
   single_placement_group = true
   upgrade_mode = "Automatic"
+
+  rolling_upgrade_policy {
+    max_unhealthy_instance_percent           = 20
+    max_unhealthy_upgraded_instance_percent  = 10  # Add this line
+    pause_time_between_batches               = "PT0S"  # Add this line
+    max_batch_instance_percent               = 20  # Add this line
+  }
   
 
   source_image_reference {
