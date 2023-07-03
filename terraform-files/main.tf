@@ -53,7 +53,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "ewit35" {
   upgrade_mode = "Automatic"
 
   rolling_upgrade_policy {
-    max_unhealthy_instance_percent           = 50
+    max_unhealthy_instance_percent           = 30
     max_unhealthy_upgraded_instance_percent  = 10  # Add this line
     pause_time_between_batches               = "PT0S"  # Add this line
     max_batch_instance_percent               = 20  # Add this line
